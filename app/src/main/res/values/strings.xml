@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">MyUtilities</string>
+    <string name="go_login">Login</string>
+    <string name="go_sign_up">Sign Up</string>
+    <string name="button">Button</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_up_email">Email</string>
+    <string name="sign_up_password">Password</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="log_off_user">Log off</string>
+    <string name="go_electricity">Electricity</string>
+    <string name="first_reading_day_hours">First Reading Day</string>
+    <string name="last_reading_day_hours">Last Reading Day</string>
+    <string name="first_reading_night_hours">First Reading Night</string>
+    <string name="last_reading_night_hours">Last Reading Night</string>
+    <string name="count_electricity">Count</string>
+    <string name="save_electricity">Save</string>
+    <string name="show_date">Date</string>
+
+</resources>

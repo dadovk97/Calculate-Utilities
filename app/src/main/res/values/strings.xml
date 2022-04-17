@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MyUtilities</string>
     <string name="go_login">Login</string>
     <string name="go_sign_up">Sign Up</string>
@@ -18,5 +18,23 @@
     <string name="count_electricity">Count</string>
     <string name="save_electricity">Save</string>
     <string name="show_date">Date</string>
+    <string name="go_gas">Gas</string>
+    <string name="gas_first_reading">First Reading</string>
+    <string name="gas_second_reading">Second Reading</string>
+    <string name="tariff_model">Tariff Model</string>
+    <string-array name="planets_array">
+        <item tools:ignore="Typos">TM1</item>
+        <item>TM2</item>
+        <item>TM3</item>
+        <item>TM4</item>
+        <item>TM5</item>
+        <item>TM6</item>
+        <item>TM7</item>
+        <item>TM8</item>
+        <item>TM9</item>
+        <item>TM10</item>
+        <item tools:ignore="Typos">TM11</item>
+        <item>TM12</item>
 
+    </string-array>
 </resources>

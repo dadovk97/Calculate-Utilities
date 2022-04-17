@@ -27,9 +27,12 @@ class MainMenu : AppCompatActivity() {
             val intent = Intent(this, MyUtilities::class.java)
             startActivity(intent)
         }
-        binding.btnGoElectricity.setOnClickListener()
-        {
+        binding.btnGoElectricity.setOnClickListener{
             val intent = Intent(this, CountElectricity::class.java)
+            startActivity(intent)
+        }
+        binding.btnGoGas.setOnClickListener{
+            val intent = Intent(this, CountGas::class.java)
             startActivity(intent)
         }
     }

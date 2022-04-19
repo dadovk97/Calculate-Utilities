@@ -37,8 +37,7 @@ class CountElectricity : AppCompatActivity() {
                 return@setOnClickListener
             }
             if (checkIfFirstReadingIsHigher()) {
-                Toast.makeText(
-                    this@CountElectricity,
+                Toast.makeText(this@CountElectricity,
                     "First reading cannot be higher than last reading!",
                     Toast.LENGTH_LONG
                 ).show()

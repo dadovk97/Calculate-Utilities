@@ -22,7 +22,9 @@
     <string name="gas_first_reading">First Reading</string>
     <string name="gas_second_reading">Second Reading</string>
     <string name="tariff_model">Tariff Model</string>
-    <string-array name="planets_array">
+    <string name="gas_company">Gas Company</string>
+    <string name="count_gas">Count</string>
+    <string-array name="tariff_models">
         <item tools:ignore="Typos">TM1</item>
         <item>TM2</item>
         <item>TM3</item>
@@ -35,6 +37,12 @@
         <item>TM10</item>
         <item tools:ignore="Typos">TM11</item>
         <item>TM12</item>
+
+    </string-array>
+    <string-array name="gas_company">
+        <item> PPD </item>
+
+        <item> PIS </item>
 
     </string-array>
 </resources>

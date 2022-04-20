@@ -18,13 +18,13 @@ import kotlin.math.roundToInt
 class CountGas : AppCompatActivity() {
     private var tariffModelPrice = 0.0
     private var gasCompanyTariff = 0.0
-    private var savePrice = 0.0
-    private var saveDateYear = 0
-    private var saveDateMonth = 0
-    private var saveDateDay = 0
-    private var ifPressedCount = false
-    private var ifPressedDate = false
-    private lateinit var tariffModel : String
+    private var savePriceGas = 0.0
+    private var saveDateYearGas = 0
+    private var saveDateMonthGas = 0
+    private var saveDateDayGas = 0
+    private var ifPressedCountGas = false
+    private var ifPressedDateGas = false
+    private lateinit var tariffModelGas : String
     private lateinit var binding: ActivityCountGasBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,19 +43,19 @@ class CountGas : AppCompatActivity() {
             }
             if (checkIfFirstReadingGasIsHigher()) {
                 Toast.makeText(this@CountGas,
-                    "First reading cannot be higher than last reading!",
+                    "First reading cannot be higher or same as last reading!",
                     Toast.LENGTH_LONG
                 ).show()
                 return@setOnClickListener
             }
             countGas()
-            ifPressedCount = true
+            ifPressedCountGas = true
         }
         binding.btnSaveGas.setOnClickListener{
 
-            if(!ifPressedCount)
+            if(!ifPressedCountGas)
                 Toast.makeText(this@CountGas, "You have to count before saving!", Toast.LENGTH_LONG).show()
-            else if (!ifPressedDate)
+            else if (!ifPressedDateGas)
                 Toast.makeText(this@CountGas, "You have to select date before saving!", Toast.LENGTH_LONG).show()
             else
                 saveGasToFirebase()
@@ -79,7 +79,7 @@ class CountGas : AppCompatActivity() {
         val firstReadingDayGas = binding.txtGasFirstReading.text.toString()
         val lastReadingDayGas = binding.txtGasLastReading.text.toString()
 
-        if (firstReadingDayGas.toInt() > lastReadingDayGas.toInt()){
+        if (firstReadingDayGas.toInt() >= lastReadingDayGas.toInt()){
             return true
         }
         return false
@@ -116,7 +116,7 @@ class CountGas : AppCompatActivity() {
                                 "TM11" -> tariffModelPrice = 0.2821
                                 "TM12" -> tariffModelPrice = 0.2730
                             }
-                            tariffModel = tariffModels[p2].toString()
+                            tariffModelGas = tariffModels[p2].toString()
                         }
                         override fun onNothingSelected(p0: AdapterView<*>?) {
                             Toast.makeText(this@CountGas, "You have to select tariff model!", Toast.LENGTH_LONG).show()
@@ -146,7 +146,7 @@ class CountGas : AppCompatActivity() {
                                 "TM12" -> tariffModelPrice = 0.3094
 
                             }
-                            tariffModel = tariffModels[p2].toString()
+                            tariffModelGas = tariffModels[p2].toString()
                         }
                         override fun onNothingSelected(p0: AdapterView<*>?) {
                             Toast.makeText(this@CountGas, "You have to select tariff model!", Toast.LENGTH_LONG).show()
@@ -167,8 +167,9 @@ class CountGas : AppCompatActivity() {
         var gasEnergy = gasDifference * gasCompanyTariff
         gasEnergy *= tariffModelPrice
         val gasPrice = (gasEnergy * 100.0).roundToInt() / 100.0
-        savePrice = gasPrice
+        savePriceGas = gasPrice
         binding.txtGasBill.text = ("Your price is $gasPrice kn!")
+
     }
 
     private fun showDateView(){
@@ -178,11 +179,11 @@ class CountGas : AppCompatActivity() {
         val day = dateView.get(Calendar.DAY_OF_MONTH)
 
         val datePicker = DatePickerDialog(this, { _, dateYear, dateMonth, dayOfMonth ->
-            saveDateYear = dateYear
-            saveDateMonth = dateMonth + 1
-            saveDateDay = dayOfMonth },year,month,day)
+            saveDateYearGas = dateYear
+            saveDateMonthGas = dateMonth + 1
+            saveDateDayGas = dayOfMonth },year,month,day)
         datePicker.show()
-        ifPressedDate = true
+        ifPressedDateGas = true
 
 
     }
@@ -192,15 +193,19 @@ class CountGas : AppCompatActivity() {
         val gas: MutableMap<String, Any> = HashMap()
         val user = Firebase.auth.currentUser?.email.toString()
 
-        gas["Price"] = savePrice
+        gas["Price"] = savePriceGas
         gas["User"] = user
-        gas["Year"] = saveDateYear
-        gas["Month"] = saveDateMonth
-        gas["Day"] = saveDateDay
-        gas["TM"] =
+        gas["Year"] = saveDateYearGas
+        gas["Month"] = saveDateMonthGas
+        gas["Day"] = saveDateDayGas
+        gas["TM"] = tariffModelGas
 
         db.collection("Gas").add(gas).addOnCompleteListener {
             Toast.makeText(this@CountGas, "You saved your data successfully!", Toast.LENGTH_LONG).show()
+            finish()
+            overridePendingTransition(0, 0)
+            startActivity(intent)
+            overridePendingTransition(0, 0)
         }
     }
 }

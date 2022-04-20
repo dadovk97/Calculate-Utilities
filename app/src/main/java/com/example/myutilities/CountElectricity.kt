@@ -15,12 +15,12 @@ import kotlin.math.roundToInt
 
 class CountElectricity : AppCompatActivity() {
     private lateinit var binding: ActivityCountElectricityBinding
-    private var savePrice = 0.0
-    private var saveDateYear = 0
-    private var saveDateMonth = 0
-    private var saveDateDay = 0
-    private var ifPressedCount = false
-    private var ifPressedDate = false
+    private var savePriceElectricity = 0.0
+    private var saveDateYearElectricity = 0
+    private var saveDateMonthElectricity = 0
+    private var saveDateDayElectricity = 0
+    private var ifPressedCountElectricity = false
+    private var ifPressedDateElectricity = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,19 +39,19 @@ class CountElectricity : AppCompatActivity() {
             }
             if (checkIfFirstReadingIsHigher()) {
                 Toast.makeText(this@CountElectricity,
-                    "First reading cannot be higher than last reading!",
+                    "First reading cannot be higher or same as last reading!!",
                     Toast.LENGTH_LONG
                 ).show()
                 return@setOnClickListener
             }
             countElectricity()
-            ifPressedCount = true
+            ifPressedCountElectricity = true
         }
         binding.btnSaveElectricity.setOnClickListener{
 
-            if(!ifPressedCount)
+            if(!ifPressedCountElectricity)
                 Toast.makeText(this@CountElectricity, "You have to count before saving!", Toast.LENGTH_LONG).show()
-            else if (!ifPressedDate)
+            else if (!ifPressedDateElectricity)
                 Toast.makeText(this@CountElectricity, "You have to select date before saving!", Toast.LENGTH_LONG).show()
             else
                 saveToFirebase()
@@ -81,7 +81,7 @@ class CountElectricity : AppCompatActivity() {
         val firstReadingNight = binding.txtFirstReadingNight.text.toString()
         val lastReadingNight = binding.txtLastReadingNight.text.toString()
 
-        if (firstReadingDay.toInt() > lastReadingDay.toInt() || firstReadingNight.toInt() > lastReadingNight.toInt()) {
+        if (firstReadingDay.toInt() >= lastReadingDay.toInt() || firstReadingNight.toInt() >= lastReadingNight.toInt()) {
             return true
         }
 
@@ -99,8 +99,8 @@ class CountElectricity : AppCompatActivity() {
         val x2 = differenceNight.toDouble() * 0.25
         val pdv = ((x1 + x2 + 7.40 + firstFee + secondFee + thirdFee) * 0.13)
         val price = ((((x1 + x2 + 7.40 + firstFee + secondFee + thirdFee + pdv)) * 100.0).roundToInt() / 100.0)
-        savePrice = price
-        binding.txtElectricityBill.text = ("Your price is $savePrice kn!")
+        savePriceElectricity = price
+        binding.txtElectricityBill.text = ("Your price is $savePriceElectricity kn!")
     }
 
     private fun saveToFirebase() {
@@ -108,14 +108,18 @@ class CountElectricity : AppCompatActivity() {
         val electricity: MutableMap<String, Any> = HashMap()
         val user = Firebase.auth.currentUser?.email.toString()
 
-        electricity["Price"] = savePrice
+        electricity["Price"] = savePriceElectricity
         electricity["User"] = user
-        electricity["Year"] = saveDateYear
-        electricity["Month"] = saveDateMonth
-        electricity["Day"] = saveDateDay
+        electricity["Year"] = saveDateYearElectricity
+        electricity["Month"] = saveDateMonthElectricity
+        electricity["Day"] = saveDateDayElectricity
 
         db.collection("Electricity").add(electricity).addOnCompleteListener {
             Toast.makeText(this@CountElectricity, "You saved your data successfully!", Toast.LENGTH_LONG).show()
+            finish()
+            overridePendingTransition(0, 0)
+            startActivity(intent)
+            overridePendingTransition(0, 0)
         }
     }
 
@@ -126,11 +130,11 @@ class CountElectricity : AppCompatActivity() {
         val day = dateView.get(Calendar.DAY_OF_MONTH)
 
         val datePicker = DatePickerDialog(this, { _, dateYear, dateMonth, dayOfMonth ->
-            saveDateYear = dateYear
-            saveDateMonth = dateMonth + 1
-            saveDateDay = dayOfMonth },year,month,day)
+            saveDateYearElectricity = dateYear
+            saveDateMonthElectricity = dateMonth + 1
+            saveDateDayElectricity = dayOfMonth },year,month,day)
             datePicker.show()
-            ifPressedDate = true
+            ifPressedDateElectricity = true
 
 
     }

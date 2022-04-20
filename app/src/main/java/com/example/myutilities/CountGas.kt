@@ -1,5 +1,6 @@
 package com.example.myutilities
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -7,9 +8,11 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myutilities.databinding.ActivityCountGasBinding
+import kotlin.math.roundToInt
 
 class CountGas : AppCompatActivity() {
     var tariffModel = 0.0
+    var gasCompany = 0.0
     private lateinit var binding: ActivityCountGasBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +35,7 @@ class CountGas : AppCompatActivity() {
                 ).show()
                 return@setOnClickListener
             }
+            countGas()
         }
 
 
@@ -86,15 +90,14 @@ class CountGas : AppCompatActivity() {
                                 "TM11" -> tariffModel = 0.2821
                                 "TM12" -> tariffModel = 0.2730
                             }
-                            println(tariffModel)
+
 
                         }
-
                         override fun onNothingSelected(p0: AdapterView<*>?) {
                             Toast.makeText(this@CountGas, "You have to select tariff model!", Toast.LENGTH_LONG).show()
                         }
-
                     }
+                    gasCompany = 9.2607
                 }
                 if(pickCompany[p2].toString() == "PIS")
                 {
@@ -116,21 +119,30 @@ class CountGas : AppCompatActivity() {
                                 "TM10" -> tariffModel = 0.3339
                                 "TM11" -> tariffModel = 0.3216
                                 "TM12" -> tariffModel = 0.3094
-                            }
-                            println(tariffModel)
-                        }
 
+                            }
+
+                        }
                         override fun onNothingSelected(p0: AdapterView<*>?) {
                             Toast.makeText(this@CountGas, "You have to select tariff model!", Toast.LENGTH_LONG).show()
                         }
                     }
+                    gasCompany = 9.638183
                 }
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 Toast.makeText(this@CountGas, "You have to select gas company!", Toast.LENGTH_LONG).show()
             }
         }
+    }
 
+    @SuppressLint("SetTextI18n")
+    private fun countGas(){
+        val gasDifference = binding.txtGasLastReading.text.toString().toInt() - binding.txtGasFirstReading.text.toString().toInt()
+        var gasEnergy = gasDifference * gasCompany
+        gasEnergy *= tariffModel
+        val gasPrice = (gasEnergy * 100.0).roundToInt() / 100.0
+        binding.txtGasBill.text = ("Your price is $gasPrice kn!")
     }
 }
 

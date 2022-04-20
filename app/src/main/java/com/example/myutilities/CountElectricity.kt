@@ -29,6 +29,7 @@ class CountElectricity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+
         binding.btnCountElectricity.setOnClickListener {
 
             if (checkIfBlank()) {

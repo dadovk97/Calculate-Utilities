@@ -24,6 +24,7 @@
     <string name="tariff_model">Tariff Model</string>
     <string name="gas_company">Gas Company</string>
     <string name="count_gas">Count</string>
+    <string name="save_gas">Save</string>
     <string-array name="tariff_models">
         <item tools:ignore="Typos">TM1</item>
         <item>TM2</item>

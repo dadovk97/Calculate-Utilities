@@ -12,14 +12,14 @@ import kotlin.math.roundToInt
 
 class CountGas : AppCompatActivity() {
     var tariffModel = 0.0
-    var gasCompany = 0.0
+    var gasCompanyTariff = 0.0
     private lateinit var binding: ActivityCountGasBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCountGasBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        gasCompany()
+        pickGasCompany()
 
         binding.btnCountGas.setOnClickListener{
             if(checkIfBlankGas())
@@ -59,7 +59,7 @@ class CountGas : AppCompatActivity() {
         return false
     }
 
-    private fun gasCompany() {
+    private fun pickGasCompany() {
         val tariffModels = resources.getStringArray(R.array.tariff_models)
         val spinnerTariff = binding.spinnerTariffModels
         val adapterTariff = ArrayAdapter(this, android.R.layout.simple_spinner_item, tariffModels)
@@ -97,7 +97,7 @@ class CountGas : AppCompatActivity() {
                             Toast.makeText(this@CountGas, "You have to select tariff model!", Toast.LENGTH_LONG).show()
                         }
                     }
-                    gasCompany = 9.2607
+                    gasCompanyTariff = 9.2607
                 }
                 if(pickCompany[p2].toString() == "PIS")
                 {
@@ -127,7 +127,7 @@ class CountGas : AppCompatActivity() {
                             Toast.makeText(this@CountGas, "You have to select tariff model!", Toast.LENGTH_LONG).show()
                         }
                     }
-                    gasCompany = 9.638183
+                    gasCompanyTariff = 9.638183
                 }
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -139,7 +139,7 @@ class CountGas : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun countGas(){
         val gasDifference = binding.txtGasLastReading.text.toString().toInt() - binding.txtGasFirstReading.text.toString().toInt()
-        var gasEnergy = gasDifference * gasCompany
+        var gasEnergy = gasDifference * gasCompanyTariff
         gasEnergy *= tariffModel
         val gasPrice = (gasEnergy * 100.0).roundToInt() / 100.0
         binding.txtGasBill.text = ("Your price is $gasPrice kn!")

@@ -4,113 +4,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CountGas">
+    tools:context=".CountWater">
 
     <EditText
-        android:id="@+id/txtGasLastReading"
+        android:id="@+id/txtFirstReadingWater"
         android:layout_width="182dp"
         android:layout_height="50dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/gas_second_reading"
+        android:hint="@string/water_first_reading"
         android:inputType="number"
-        android:minHeight="48dp"
         android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.873"
+        app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintVertical_bias="0.055" />
 
     <EditText
-        android:id="@+id/txtGasFirstReading"
+        android:id="@+id/txtLastReadingWater"
         android:layout_width="182dp"
         android:layout_height="50dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/gas_first_reading"
+        android:hint="@string/water_last_reading"
         android:inputType="number"
-        android:minHeight="48dp"
         android:textColorHint="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintHorizontal_bias="0.93"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintVertical_bias="0.054" />
 
     <Spinner
-        android:id="@+id/spinnerTariffModels"
-        android:layout_width="110dp"
-        android:layout_height="48dp"
-        android:contentDescription="@string/tariff_model"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.053"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15" />
-
-    <Button
-        android:id="@+id/btnCountGas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/count_gas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.385" />
-
-    <Spinner
-        android:id="@+id/spinnerGasCompany"
-        android:layout_width="100dp"
-        android:layout_height="48dp"
+        android:id="@+id/spinnerWaterCompany"
+        android:layout_width="235dp"
+        android:layout_height="59dp"
         android:contentDescription="@string/gas_company"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.149" />
-
-    <TextView
-        android:id="@+id/txtGasBill"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.308" />
+        app:layout_constraintVertical_bias="0.143" />
 
     <Button
-        android:id="@+id/btnSaveGas"
+        android:id="@+id/btnCountWater"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/save_water"
+        android:text="@string/count_water"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.823"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.385" />
 
     <Button
-        android:id="@+id/btnShowDateGas"
+        android:id="@+id/btnDateWater"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/show_date"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.433"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.385" />
 
+    <Button
+        android:id="@+id/btnSaveWater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save_water"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.385" />
+
+    <TextView
+        android:id="@+id/txtWaterBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.278" />
 </androidx.constraintlayout.widget.ConstraintLayout>

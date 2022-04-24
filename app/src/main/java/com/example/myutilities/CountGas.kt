@@ -67,19 +67,19 @@ class CountGas : AppCompatActivity() {
 
     }
     private fun checkIfBlankGas(): Boolean {
-        val firstReadingDayGas = binding.txtGasFirstReading.text
-        val lastReadingDayGas = binding.txtGasLastReading.text
-        if (firstReadingDayGas.isBlank() || lastReadingDayGas.isBlank())
+        val firstReadingGas = binding.txtGasFirstReading.text
+        val lastReadingGas = binding.txtGasLastReading.text
+        if (firstReadingGas.isBlank() || lastReadingGas.isBlank())
         {
             return true
         }
             return false
     }
     private fun checkIfFirstReadingGasIsHigher(): Boolean {
-        val firstReadingDayGas = binding.txtGasFirstReading.text.toString()
-        val lastReadingDayGas = binding.txtGasLastReading.text.toString()
+        val firstReadingGas = binding.txtGasFirstReading.text.toString()
+        val lastReadingGas = binding.txtGasLastReading.text.toString()
 
-        if (firstReadingDayGas.toInt() >= lastReadingDayGas.toInt()){
+        if (firstReadingGas.toInt() >= lastReadingGas.toInt()){
             return true
         }
         return false
@@ -169,7 +169,6 @@ class CountGas : AppCompatActivity() {
         val gasPrice = (gasEnergy * 100.0).roundToInt() / 100.0
         savePriceGas = gasPrice
         binding.txtGasBill.text = ("Your price is $gasPrice kn!")
-
     }
 
     private fun showDateView(){
@@ -184,8 +183,6 @@ class CountGas : AppCompatActivity() {
             saveDateDayGas = dayOfMonth },year,month,day)
         datePicker.show()
         ifPressedDateGas = true
-
-
     }
     private fun saveGasToFirebase()
     {

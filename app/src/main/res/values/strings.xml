@@ -23,8 +23,14 @@
     <string name="gas_second_reading">Second Reading</string>
     <string name="tariff_model">Tariff Model</string>
     <string name="gas_company">Gas Company</string>
+    <string name="go_water">Water</string>
     <string name="count_gas">Count</string>
     <string name="save_gas">Save</string>
+    <string name="water_first_reading">First Reading</string>
+    <string name="water_last_reading">Last Reading</string>
+    <string name="count_water">Count</string>
+    <string name="save_water">Save</string>
+
     <string-array name="tariff_models">
         <item tools:ignore="Typos">TM1</item>
         <item>TM2</item>
@@ -38,12 +44,14 @@
         <item>TM10</item>
         <item tools:ignore="Typos">TM11</item>
         <item>TM12</item>
-
     </string-array>
     <string-array name="gas_company">
         <item> PPD </item>
-
         <item> PIS </item>
-
     </string-array>
+    <string-array name="water_company">
+        <item> Vodovod - Osijek d.o.o </item>
+        <item> Vodovod i Kanalizacija d.o.o Rijeka </item>
+        <item> Vodoopskrba i odvodnja d.o.o Zagreb </item>
+      </string-array>
 </resources>

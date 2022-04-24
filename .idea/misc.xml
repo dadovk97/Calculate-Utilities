@@ -5,7 +5,8 @@
       <map>
         <entry key="..\:/Users/Dado/AndroidStudioProjects/Calculate-Utilities/app/src/main/res/layout/activity_count_electricity.xml" value="0.33" />
         <entry key="..\:/Users/Dado/AndroidStudioProjects/Calculate-Utilities/app/src/main/res/layout/activity_count_gas.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Dado/AndroidStudioProjects/Calculate-Utilities/app/src/main/res/layout/activity_main_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Dado/AndroidStudioProjects/Calculate-Utilities/app/src/main/res/layout/activity_count_water.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Dado/AndroidStudioProjects/Calculate-Utilities/app/src/main/res/layout/activity_main_menu.xml" value="0.33" />
       </map>
     </option>
   </component>

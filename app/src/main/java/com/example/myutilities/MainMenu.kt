@@ -20,7 +20,7 @@ class MainMenu : AppCompatActivity() {
         setContentView(view)
 
         val user = Firebase.auth.currentUser
-        if (user != null) binding.txtLogedUser.text = user.email
+        if (user != null) binding.txtCurrentUser.text = user.email
 
         binding.btnLogOffUser.setOnClickListener{
             FirebaseAuth.getInstance().signOut()
@@ -33,6 +33,10 @@ class MainMenu : AppCompatActivity() {
         }
         binding.btnGoGas.setOnClickListener{
             val intent = Intent(this, CountGas::class.java)
+            startActivity(intent)
+        }
+        binding.btnGoWater.setOnClickListener {
+            val intent = Intent(this, CountWater::class.java)
             startActivity(intent)
         }
     }

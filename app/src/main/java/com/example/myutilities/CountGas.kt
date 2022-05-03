@@ -16,12 +16,13 @@ import java.util.*
 import kotlin.math.roundToInt
 
 class CountGas : AppCompatActivity() {
+    private lateinit var gasCompany : String
     private var tariffModelPrice = 0.0
     private var gasCompanyTariff = 0.0
     private var savePriceGas = 0.0
-    private var saveDateYearGas = 0
-    private var saveDateMonthGas = 0
-    private var saveDateDayGas = 0
+    private lateinit var saveDateYearGas : String
+    private lateinit var saveDateMonthGas : String
+    private lateinit var saveDateDayGas : String
     private var ifPressedCountGas = false
     private var ifPressedDateGas = false
     private lateinit var tariffModelGas : String
@@ -97,6 +98,7 @@ class CountGas : AppCompatActivity() {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 if(pickCompany[p2].toString() == "PPD")
                 {
+                    gasCompany = pickCompany[p2].toString()
                     spinnerTariff.adapter = adapterTariff
                     spinnerTariff.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                         override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
@@ -126,6 +128,7 @@ class CountGas : AppCompatActivity() {
                 }
                 if(pickCompany[p2].toString() == "PIS")
                 {
+                    gasCompany = pickCompany[p2].toString()
                     spinnerTariff.adapter = adapterTariff
                     spinnerTariff.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                         override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long)
@@ -171,6 +174,7 @@ class CountGas : AppCompatActivity() {
         binding.txtGasBill.text = ("Your price is $gasPrice kn!")
     }
 
+
     private fun showDateView(){
         val dateView = Calendar.getInstance()
         val year = dateView.get(Calendar.YEAR)
@@ -178,9 +182,10 @@ class CountGas : AppCompatActivity() {
         val day = dateView.get(Calendar.DAY_OF_MONTH)
 
         val datePicker = DatePickerDialog(this, { _, dateYear, dateMonth, dayOfMonth ->
-            saveDateYearGas = dateYear
-            saveDateMonthGas = dateMonth + 1
-            saveDateDayGas = dayOfMonth },year,month,day)
+            saveDateYearGas = dateYear.toString()
+            saveDateMonthGas = (dateMonth + 1).toString()
+            saveDateDayGas = dayOfMonth.toString()
+                                                },year,month,day)
         datePicker.show()
         ifPressedDateGas = true
     }
@@ -189,13 +194,12 @@ class CountGas : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
         val gas: MutableMap<String, Any> = HashMap()
         val user = Firebase.auth.currentUser?.email.toString()
-
+        gas["Company"] = gasCompany
         gas["Price"] = savePriceGas
         gas["User"] = user
-        gas["Year"] = saveDateYearGas
-        gas["Month"] = saveDateMonthGas
-        gas["Day"] = saveDateDayGas
         gas["TM"] = tariffModelGas
+        gas["Date"]= "$saveDateMonthGas / $saveDateYearGas"
+
 
         db.collection("Gas").add(gas).addOnCompleteListener {
             Toast.makeText(this@CountGas, "You saved your data successfully!", Toast.LENGTH_LONG).show()

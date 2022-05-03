@@ -10,7 +10,7 @@ import com.google.firebase.ktx.Firebase
 
 
 class MainMenu : AppCompatActivity() {
-    private lateinit var binding : ActivityMainMenuBinding
+    private lateinit var binding: ActivityMainMenuBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,16 +22,16 @@ class MainMenu : AppCompatActivity() {
         val user = Firebase.auth.currentUser
         if (user != null) binding.txtCurrentUser.text = user.email
 
-        binding.btnLogOffUser.setOnClickListener{
+        binding.btnLogOffUser.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, MyUtilities::class.java)
             startActivity(intent)
         }
-        binding.btnGoElectricity.setOnClickListener{
+        binding.btnGoElectricity.setOnClickListener {
             val intent = Intent(this, CountElectricity::class.java)
             startActivity(intent)
         }
-        binding.btnGoGas.setOnClickListener{
+        binding.btnGoGas.setOnClickListener {
             val intent = Intent(this, CountGas::class.java)
             startActivity(intent)
         }
@@ -39,7 +39,11 @@ class MainMenu : AppCompatActivity() {
             val intent = Intent(this, CountWater::class.java)
             startActivity(intent)
         }
+        binding.btnAllUtilities.setOnClickListener {
+            val intent = Intent(this, SavedUtilities::class.java)
+            startActivity(intent)
+
+
+        }
     }
-
-
 }

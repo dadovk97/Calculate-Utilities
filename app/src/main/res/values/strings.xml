@@ -30,6 +30,8 @@
     <string name="water_last_reading">Last Reading</string>
     <string name="count_water">Count</string>
     <string name="save_water">Save</string>
+    <string name="show_utilities">Show</string>
+    <string name="go_all_utilities">All Utilities</string>
 
     <string-array name="tariff_models">
         <item tools:ignore="Typos">TM1</item>
@@ -53,5 +55,11 @@
         <item> Vodovod - Osijek d.o.o </item>
         <item> Vodovod i Kanalizacija d.o.o Rijeka </item>
         <item> Vodoopskrba i odvodnja d.o.o Zagreb </item>
-      </string-array>
+    </string-array>
+
+    <string-array name="choose_utilities">
+        <item> Water </item>
+        <item> Gas </item>
+        <item> Electricity </item>
+    </string-array>
 </resources>

@@ -16,9 +16,9 @@ import kotlin.math.roundToInt
 class CountElectricity : AppCompatActivity() {
     private lateinit var binding: ActivityCountElectricityBinding
     private var savePriceElectricity = 0.0
-    private var saveDateYearElectricity = 0
-    private var saveDateMonthElectricity = 0
-    private var saveDateDayElectricity = 0
+    private lateinit var saveDateYearElectricity : String
+    private lateinit var saveDateMonthElectricity  : String
+    private lateinit var saveDateDayElectricity : String
     private var ifPressedCountElectricity = false
     private var ifPressedDateElectricity = false
 
@@ -110,9 +110,7 @@ class CountElectricity : AppCompatActivity() {
 
         electricity["Price"] = savePriceElectricity
         electricity["User"] = user
-        electricity["Year"] = saveDateYearElectricity
-        electricity["Month"] = saveDateMonthElectricity
-        electricity["Day"] = saveDateDayElectricity
+        electricity["Date"] = "$saveDateMonthElectricity / $saveDateYearElectricity"
 
         db.collection("Electricity").add(electricity).addOnCompleteListener {
             Toast.makeText(this@CountElectricity, "You saved your data successfully!", Toast.LENGTH_LONG).show()
@@ -130,9 +128,9 @@ class CountElectricity : AppCompatActivity() {
         val day = dateView.get(Calendar.DAY_OF_MONTH)
 
         val datePicker = DatePickerDialog(this, { _, dateYear, dateMonth, dayOfMonth ->
-            saveDateYearElectricity = dateYear
-            saveDateMonthElectricity = dateMonth + 1
-            saveDateDayElectricity = dayOfMonth },year,month,day)
+            saveDateYearElectricity = dateYear.toString()
+            saveDateMonthElectricity = (dateMonth + 1).toString()
+            saveDateDayElectricity = dayOfMonth.toString() },year,month,day)
             datePicker.show()
             ifPressedDateElectricity = true
 

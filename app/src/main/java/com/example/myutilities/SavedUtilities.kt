@@ -6,6 +6,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.example.myutilities.databinding.ActivitySavedUtilitiesBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -13,7 +14,7 @@ import com.google.firebase.ktx.Firebase
 
 class SavedUtilities : AppCompatActivity() {
     private lateinit var binding: ActivitySavedUtilitiesBinding
-    var utility = ""
+    private lateinit var utility: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySavedUtilitiesBinding.inflate(layoutInflater)
@@ -24,44 +25,44 @@ class SavedUtilities : AppCompatActivity() {
         binding.btnShowUtilities.setOnClickListener {
             retrieveUserUtilities()
         }
+        binding.btnDeleteUtilities.setOnClickListener {
+            deleteUtilities()
+            binding.txtDeleteUtility.isVisible = true
+        }
     }
 
     private fun retrieveUserUtilities() {
         when (utility) {
             "Water" -> {
-              showUtilities(getCompany = true)
+                showUtilities(getCompany = true)
             }
             "Gas" -> {
-               showUtilities(getCompany = true, getTariffModel = true, getDate = true)
+                showUtilities(getCompany = true, getTariffModel = true)
             }
             "Electricity" -> {
                 showUtilities()
             }
         }
     }
-    private fun showUtilities(getCompany: Boolean = false, getTariffModel: Boolean = false, getDate: Boolean = false)
-    {
+    private fun showUtilities(getCompany: Boolean = false, getTariffModel: Boolean = false) {
         val db = FirebaseFirestore.getInstance()
         val user = Firebase.auth.currentUser?.email
         db.collection(utility).whereEqualTo("User", user).get().addOnCompleteListener {
             val result = StringBuffer()
             if (it.isSuccessful) {
                 for (document in it.result) {
-                    if(getCompany)
-                    {
-                        result.append(document.data.getValue("Company")).append("\n\n")
+                    if (getCompany) {
+                        result.append("Company: ").append(document.data.getValue("Company"))
+                            .append("\n\n")
                     }
-                        result.append(document.data.getValue("Date")).append("\n\n").
-                        append(document.data.getValue("Price")).append("\n\n")
-                    if(getTariffModel)
-                    {
-                        result.append(document.data.getValue("TM")).append("\n\n")
-                    }
-                    if(getDate){
-                        result.append(document.data.getValue("Date")).append("\n\n")
+                    result.append("Date: ").append(document.data.getValue("Date")).append("\n\n")
+                        .append("Price: ").append(document.data.getValue("Price")).append("\n\n")
+                    if (getTariffModel) {
+                        result.append("Tariff Model:").append(document.data.getValue("TM"))
+                            .append("\n\n")
                     }
                 }
-                binding.textView.text = result
+                binding.txtShowUtilities.text = result
             }
         }
     }
@@ -86,7 +87,6 @@ class SavedUtilities : AppCompatActivity() {
                     }
                 }
             }
-
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 Toast.makeText(
                     this@SavedUtilities,
@@ -96,7 +96,20 @@ class SavedUtilities : AppCompatActivity() {
             }
         }
     }
+    private fun deleteUtilities() {
+        val db = FirebaseFirestore.getInstance()
+        val query = db.collection(utility).whereEqualTo("Date", binding.txtDeleteUtility.text.toString()).get()
+        query.addOnCompleteListener {
+            for(document in it.result){
+                db.collection(utility).document(document.id).delete()
+            }
+        }
+    }
 }
+
+
+
+
 
 
 

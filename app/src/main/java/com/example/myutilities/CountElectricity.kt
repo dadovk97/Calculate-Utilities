@@ -10,7 +10,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
-import kotlin.collections.HashMap
 import kotlin.math.roundToInt
 
 class CountElectricity : AppCompatActivity() {
@@ -110,7 +109,7 @@ class CountElectricity : AppCompatActivity() {
 
         electricity["Price"] = savePriceElectricity
         electricity["User"] = user
-        electricity["Date"] = "$saveDateMonthElectricity / $saveDateYearElectricity"
+        electricity["Date"] = "$saveDateMonthElectricity/$saveDateYearElectricity"
 
         db.collection("Electricity").add(electricity).addOnCompleteListener {
             Toast.makeText(this@CountElectricity, "You saved your data successfully!", Toast.LENGTH_LONG).show()

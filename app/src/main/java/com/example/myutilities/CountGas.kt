@@ -198,7 +198,7 @@ class CountGas : AppCompatActivity() {
         gas["Price"] = savePriceGas
         gas["User"] = user
         gas["TM"] = tariffModelGas
-        gas["Date"]= "$saveDateMonthGas / $saveDateYearGas"
+        gas["Date"]= "$saveDateMonthGas/$saveDateYearGas"
 
 
         db.collection("Gas").add(gas).addOnCompleteListener {

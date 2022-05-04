@@ -32,6 +32,8 @@
     <string name="save_water">Save</string>
     <string name="show_utilities">Show</string>
     <string name="go_all_utilities">All Utilities</string>
+    <string name="delete_utilities">Delete</string>
+    <string name="date_to_delete">Date to delete</string>
 
     <string-array name="tariff_models">
         <item tools:ignore="Typos">TM1</item>

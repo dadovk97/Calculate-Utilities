@@ -159,7 +159,7 @@ class CountWater : AppCompatActivity() {
         val user = Firebase.auth.currentUser?.email.toString()
         water["Price"] = waterPrice
         water["User"] = user
-        water["Date"] = "$saveDateMonthWater / $saveDateYearWater"
+        water["Date"] = "$saveDateMonthWater/$saveDateYearWater"
         water["Company"] = waterCompanyName
 
         db.collection("Water").add(water).addOnCompleteListener {

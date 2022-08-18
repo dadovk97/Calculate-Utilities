@@ -40,7 +40,7 @@ class MainMenu : AppCompatActivity() {
             startActivity(intent)
         }
         binding.btnAllUtilities.setOnClickListener {
-            val intent = Intent(this, SavedUtilities::class.java)
+            val intent = Intent(this, SavedWater::class.java)
             startActivity(intent)
 
 

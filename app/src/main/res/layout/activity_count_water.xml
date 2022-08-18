@@ -7,6 +7,22 @@
     tools:context=".CountWater">
 
     <EditText
+        android:id="@+id/txtBillNumberWater"
+        android:layout_width="146dp"
+        android:layout_height="48dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/bill_number"
+        android:inputType="number"
+        android:textColorHint="#757575"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.156" />
+
+    <EditText
         android:id="@+id/txtFirstReadingWater"
         android:layout_width="182dp"
         android:layout_height="50dp"

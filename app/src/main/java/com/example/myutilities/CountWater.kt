@@ -76,7 +76,8 @@ class CountWater : AppCompatActivity() {
     private fun checkIfBlankWater(): Boolean {
         val firstReadingWater = binding.txtFirstReadingWater.text
         val lastReadingWater = binding.txtLastReadingWater.text
-        if (firstReadingWater.isBlank() || lastReadingWater.isBlank()) {
+        val billNumber = binding.txtBillNumberWater.text
+        if (firstReadingWater.isBlank() || lastReadingWater.isBlank() || billNumber.isBlank()) {
             return true
         }
         return false
@@ -161,6 +162,7 @@ class CountWater : AppCompatActivity() {
         water["User"] = user
         water["Date"] = "$saveDateMonthWater/$saveDateYearWater"
         water["Company"] = waterCompanyName
+        water["Bill_ID"] = binding.txtBillNumberWater.text.toString()
 
         db.collection("Water").add(water).addOnCompleteListener {
             Toast.makeText(this@CountWater, "You saved your data successfully!", Toast.LENGTH_LONG).show()

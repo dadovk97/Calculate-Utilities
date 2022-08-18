@@ -22,6 +22,7 @@ class CountElectricity : AppCompatActivity() {
     private var ifPressedDateElectricity = false
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCountElectricityBinding.inflate(layoutInflater)
@@ -53,8 +54,7 @@ class CountElectricity : AppCompatActivity() {
             else if (!ifPressedDateElectricity)
                 Toast.makeText(this@CountElectricity, "You have to select date before saving!", Toast.LENGTH_LONG).show()
             else
-                saveToFirebase()
-
+            saveToFirebase()
         }
         binding.btnShowDate.setOnClickListener {
             showDateView()
@@ -67,8 +67,10 @@ class CountElectricity : AppCompatActivity() {
         val lastReadingDay = binding.txtLastReadingDay.text.toString()
         val firstReadingNight = binding.txtFirstReadingNight.text.toString()
         val lastReadingNight = binding.txtLastReadingNight.text.toString()
+        val billNumber = binding.txtBillNumberElectricity.text.toString()
 
-        if (firstReadingDay.isBlank() || lastReadingDay.isBlank() || firstReadingNight.isBlank() || lastReadingNight.isBlank()) {
+        if (firstReadingDay.isBlank() || lastReadingDay.isBlank() || firstReadingNight.isBlank() || lastReadingNight.isBlank() ||
+                billNumber.isBlank()) {
             return true
         }
         return false
@@ -107,20 +109,22 @@ class CountElectricity : AppCompatActivity() {
         val electricity: MutableMap<String, Any> = HashMap()
         val user = Firebase.auth.currentUser?.email.toString()
 
-        electricity["Price"] = savePriceElectricity
-        electricity["User"] = user
-        electricity["Date"] = "$saveDateMonthElectricity/$saveDateYearElectricity"
+                electricity["Price"] = savePriceElectricity
+                electricity["User"] = user
+                electricity["Date"] = "$saveDateMonthElectricity/$saveDateYearElectricity"
+                electricity["Bill_ID"] = binding.txtBillNumberElectricity.text.toString()
 
-        db.collection("Electricity").add(electricity).addOnCompleteListener {
-            Toast.makeText(this@CountElectricity, "You saved your data successfully!", Toast.LENGTH_LONG).show()
-            finish()
-            overridePendingTransition(0, 0)
-            startActivity(intent)
-            overridePendingTransition(0, 0)
-        }
-    }
+                db.collection("Electricity").add(electricity).addOnCompleteListener {
+                    Toast.makeText(this@CountElectricity, "You saved your data successfully!", Toast.LENGTH_LONG).show()
+                    finish()
+                    overridePendingTransition(0, 0)
+                    startActivity(intent)
+                    overridePendingTransition(0, 0)
 
-    private fun showDateView(){
+                }
+            }
+
+        private fun showDateView(){
         val dateView = Calendar.getInstance()
         val year = dateView.get(Calendar.YEAR)
         val month = dateView.get(Calendar.MONTH)
@@ -135,4 +139,5 @@ class CountElectricity : AppCompatActivity() {
 
 
     }
+
 }

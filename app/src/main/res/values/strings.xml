@@ -1,7 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MyUtilities</string>
     <string name="go_login">Login</string>
+    <string name="go_reg" tools:ignore="StringEscaping">Don\'t have an account ? Sign Up!</string>
     <string name="go_sign_up">Sign Up</string>
+    <string name="go_log">Already have account?</string>
     <string name="button">Button</string>
     <string name="login">Login</string>
     <string name="sign_up">Sign Up</string>
@@ -15,6 +17,7 @@
     <string name="last_reading_day_hours">Last Reading Day</string>
     <string name="first_reading_night_hours">First Reading Night</string>
     <string name="last_reading_night_hours">Last Reading Night</string>
+    <string name="bill_number">Bill ID</string>
     <string name="count_electricity">Count</string>
     <string name="save_electricity">Save</string>
     <string name="show_date">Date</string>
@@ -22,7 +25,7 @@
     <string name="gas_first_reading">First Reading</string>
     <string name="gas_second_reading">Second Reading</string>
     <string name="tariff_model">Tariff Model</string>
-    <string name="gas_company">Gas Company</string>
+    <string name="gas_company">Company</string>
     <string name="go_water">Water</string>
     <string name="count_gas">Count</string>
     <string name="save_gas">Save</string>
@@ -33,7 +36,15 @@
     <string name="show_utilities">Show</string>
     <string name="go_all_utilities">All Utilities</string>
     <string name="delete_utilities">Delete</string>
-    <string name="date_to_delete">Date to delete</string>
+
+
+    <string name="rc_bill_id">Bill ID:</string>
+    <string name="rc_date">Date:</string>
+    <string name="rc_company">Company:</string>
+    <string name="rc_tm">Tariff Model:</string>
+    <string name="rc_price">Price:</string>
+    <string name="rc_bill_id_delete">Enter Bill Number to delete</string>
+
 
     <string-array name="tariff_models">
         <item tools:ignore="Typos">TM1</item>
@@ -59,9 +70,4 @@
         <item> Vodoopskrba i odvodnja d.o.o Zagreb </item>
     </string-array>
 
-    <string-array name="choose_utilities">
-        <item> Water </item>
-        <item> Gas </item>
-        <item> Electricity </item>
-    </string-array>
 </resources>

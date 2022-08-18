@@ -22,6 +22,11 @@ class LoginUser : AppCompatActivity() {
         setContentView(view)
 
         binding.btnLogin.setOnClickListener{ loginUser() }
+
+        binding.txtDontHaveAcc.setOnClickListener{
+            val intent = Intent(this, SignUpUser::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun loginUser(){

@@ -1,5 +1,6 @@
 package com.example.myutilities
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +25,11 @@ class SignUpUser : AppCompatActivity() {
         setContentView(view)
 
         binding.btnSignUp.setOnClickListener { signupUser() }
+
+        binding.txtHaveAcc.setOnClickListener{
+            val intent = Intent(this, LoginUser::class.java)
+            startActivity(intent)
+        }
     }
     private fun signupUser(){
         if(binding.txtSignUpPassword.text.toString().isBlank()
@@ -39,6 +45,8 @@ class SignUpUser : AppCompatActivity() {
                     refUsers = FirebaseDatabase.getInstance().reference.child("Users")
                         .child(firebaseUserID)
                     Toast.makeText(this@SignUpUser, "Sign Up Successful!", Toast.LENGTH_LONG).show()
+                   val intent = Intent(this, LoginUser::class.java)
+                    startActivity(intent)
                 }
                 else
                 {

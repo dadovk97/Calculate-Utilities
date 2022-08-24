@@ -2,6 +2,7 @@ package com.example.myutilities
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -35,6 +36,11 @@ class CountGas : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         pickGasCompany()
+
+        binding.btnSavedGas.setOnClickListener{
+            val intent = Intent(this, SavedGas::class.java)
+            startActivity(intent)
+        }
 
         binding.btnCountGas.setOnClickListener {
             if (checkIfBlankGas()) {

@@ -39,11 +39,6 @@ class MainMenu : AppCompatActivity() {
             val intent = Intent(this, CountWater::class.java)
             startActivity(intent)
         }
-        binding.btnAllUtilities.setOnClickListener {
-            val intent = Intent(this, SavedWater::class.java)
-            startActivity(intent)
 
-
-        }
     }
 }

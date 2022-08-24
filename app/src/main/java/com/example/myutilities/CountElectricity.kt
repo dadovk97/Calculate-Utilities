@@ -2,6 +2,7 @@ package com.example.myutilities
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +29,11 @@ class CountElectricity : AppCompatActivity() {
         binding = ActivityCountElectricityBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        binding.btnSavedElectricity.setOnClickListener{
+            val intent = Intent(this, SavedElectricity::class.java)
+            startActivity(intent)
+        }
 
 
         binding.btnCountElectricity.setOnClickListener {

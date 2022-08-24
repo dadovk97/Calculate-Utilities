@@ -6,13 +6,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp"
-    android:layout_margin="16dp">
+    android:layout_margin="16dp"
+    >
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="10dp"
         android:layout_marginVertical="6dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -90,15 +92,16 @@
 
             <EditText
                 android:id="@+id/txtDelID"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:autofillHints=""
-                android:ems="10"
+                android:ems="11"
                 android:hint="@string/rc_bill_id_delete"
                 android:inputType="number"
                 android:minHeight="48dp"
-                android:textColorHint="#757575" />
+                android:textColorHint="#757575"
+                android:layout_marginRight="10dp"/>
 
             <Button
                 android:id="@+id/btnDeleteElectricity"

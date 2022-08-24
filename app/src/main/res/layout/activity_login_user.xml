@@ -1,66 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginUser">
-
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.434" />
+    tools:context=".LoginUser"
+    android:background="@drawable/bgimgapp"
+    android:orientation="vertical"
+    android:padding="20dp">
 
     <EditText
         android:id="@+id/txtLoginEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="10dp"
         android:autofillHints=""
+        android:background="@drawable/input_fields"
         android:ems="10"
         android:hint="@string/login_email"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
+        android:paddingStart="10dp"
         android:textColorHint="#757575"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.175" />
+        android:typeface="monospace"
+        tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/txtLoginPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="15dp"
+        android:autofillHints=""
+        android:background="@drawable/input_fields"
         android:ems="10"
         android:hint="@string/login_password"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:paddingStart="10dp"
         android:textColorHint="#757575"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.274"
-        android:autofillHints="" />
+        tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:background="@drawable/input_fields"
+            android:textColor="#83FFFFFF"
+            android:layout_marginHorizontal="20dp"
+            android:typeface="monospace"
+            android:layout_gravity="right"
+           />
 
     <TextView
         android:id="@+id/txtDontHaveAcc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
         android:text="@string/go_reg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.353" />
+        android:textColor="#83FFFFFF"
+        android:typeface="monospace"
+        tools:ignore="TextContrastCheck" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

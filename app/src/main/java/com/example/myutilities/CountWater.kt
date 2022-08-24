@@ -2,6 +2,7 @@ package com.example.myutilities
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -32,6 +33,11 @@ class CountWater : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         pickWaterCompany()
+
+        binding.btnSavedWater.setOnClickListener{
+            val intent = Intent(this, SavedWater::class.java)
+            startActivity(intent)
+        }
 
         binding.btnCountWater.setOnClickListener {
             if (checkIfBlankWater()) {

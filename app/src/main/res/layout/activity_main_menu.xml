@@ -1,83 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainMenu">
+    tools:context=".MainMenu"
+    android:orientation="vertical"
+    android:background="@drawable/bgimgapp"
+    android:padding="20dp">
 
-    <TextView
-        android:id="@+id/txtCurrentUser"
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        >
+
+        <TextView
+            android:id="@+id/txtCurrentUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:paddingTop="10dp"
+            android:typeface="monospace"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+        <Button
+            android:id="@+id/btnLogOffUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/log_off_user"
+            android:layout_gravity="right"
+            android:textColorHint="#757575"
+            android:background="@drawable/input_fields"
+            android:typeface="monospace"
+         />
+    </LinearLayout>
+
 
     <Button
-        android:id="@+id/btnLogOffUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/log_off_user"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.984"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01" />
-
-    <ImageButton
         android:id="@+id/btnGoElectricity"
-        android:layout_width="49dp"
-        android:layout_height="48dp"
-        android:contentDescription="@string/go_electricity"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.723"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
-        app:srcCompat="@drawable/eco_house" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/go_electricity"
+        android:drawableLeft="@drawable/electricity3"
+        android:textColorHint="#757575"
+        android:background="@drawable/input_fields"
+        android:typeface="monospace"
+        android:padding="10dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"/>
 
-    <ImageView
+    <Button
         android:id="@+id/btnGoGas"
-        android:layout_width="49dp"
-        android:layout_height="48dp"
-        android:contentDescription="@string/go_gas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.342"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
-        app:srcCompat="@drawable/gas" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/go_gas"
+        android:drawableLeft="@drawable/gas3"
+        android:textColorHint="#757575"
+        android:background="@drawable/input_fields"
+        android:typeface="monospace"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"/>
 
-    <ImageView
+    <Button
         android:id="@+id/btnGoWater"
-        android:layout_width="56dp"
-        android:layout_height="70dp"
-        android:contentDescription="@string/go_water"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.329"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.496"
-        app:srcCompat="@drawable/house" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/go_water"
+        android:drawableLeft="@drawable/water3"
+        android:textColorHint="#757575"
+        android:background="@drawable/input_fields"
+        android:typeface="monospace"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"/>
 
-    <ImageView
-        android:id="@+id/btnAllUtilities"
-        android:layout_width="54dp"
-        android:layout_height="68dp"
-        android:contentDescription="@string/go_all_utilities"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.733"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499"
-        app:srcCompat="@drawable/online" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

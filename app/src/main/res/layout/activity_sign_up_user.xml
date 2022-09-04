@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,7 +23,8 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="10dp"
         android:typeface="monospace"
-        android:paddingLeft="10dp"/>
+        android:paddingStart="10dp"
+        tools:ignore="RtlSymmetry" />
 
     <EditText
         android:id="@+id/txtSignUpPassword"
@@ -39,7 +39,8 @@
         android:background="@drawable/input_fields"
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="15dp"
-        android:paddingLeft="10dp"/>
+        android:paddingStart="10dp"
+        tools:ignore="RtlSymmetry" />
 
     <Button
         android:id="@+id/btnSignUp"
@@ -51,7 +52,7 @@
         android:layout_marginHorizontal="20dp"
         android:typeface="monospace"
         android:layout_gravity="right"
-        />
+        tools:ignore="RtlHardcoded" />
 
     <TextView
         android:id="@+id/txtHaveAcc"

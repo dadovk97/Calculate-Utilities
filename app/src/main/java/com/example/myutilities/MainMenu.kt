@@ -38,6 +38,11 @@ class MainMenu : AppCompatActivity() {
         binding.btnGoWater.setOnClickListener {
             val intent = Intent(this, CountWater::class.java)
             startActivity(intent)
+
+        }
+        binding.btnGoOther.setOnClickListener {
+            val intent = Intent(this, OtherUtilities::class.java)
+            startActivity(intent)
         }
 
     }

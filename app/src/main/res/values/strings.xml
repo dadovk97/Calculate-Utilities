@@ -36,6 +36,10 @@
     <string name="show_utilities">Show</string>
     <string name="go_all_utilities">All Utilities</string>
     <string name="delete_utilities">Delete</string>
+    <string name="company_name">Company Name</string>
+    <string name="price">Price</string>
+    <string name="utility">Utility</string>
+    <string name="go_other">Other Utilities</string>
 
 
     <string name="rc_bill_id">Bill ID:</string>
@@ -49,6 +53,7 @@
     <string name="show_electricity">Show saved electricity</string>
     <string name="show_gas">Show saved gas</string>
     <string name="show_water">Show saved water</string>
+    <string name="show_other">Show saved other utilities</string>
 
 
     <string-array name="tariff_models">
@@ -74,5 +79,12 @@
         <item> Vodovod i Kanalizacija d.o.o Rijeka </item>
         <item> Vodoopskrba i odvodnja d.o.o Zagreb </item>
     </string-array>
+
+    <string-array name="utility">
+        <item> Mobilna pretplata </item>
+        <item> Komunalne usluge </item>
+        <item> Fiksna mreza/Internet </item>
+    </string-array>
+
 
 </resources>

@@ -8,8 +8,6 @@
     android:orientation="vertical"
     android:background="@drawable/bgimgapp"
     android:padding="20dp">
-
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,8 +38,6 @@
             android:typeface="monospace"
          />
     </LinearLayout>
-
-
     <Button
         android:id="@+id/btnGoElectricity"
         android:layout_width="match_parent"
@@ -82,4 +78,16 @@
         android:layout_marginBottom="10dp"
         android:textSize="20dp"/>
 
+    <Button
+        android:id="@+id/btnGoOther"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/go_other"
+        android:drawableLeft="@drawable/otherutilities"
+        android:textColorHint="#757575"
+        android:background="@drawable/input_fields"
+        android:typeface="monospace"
+        android:padding="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"/>
 </LinearLayout>

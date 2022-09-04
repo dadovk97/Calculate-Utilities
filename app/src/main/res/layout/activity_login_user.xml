@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -25,7 +24,7 @@
         android:paddingStart="10dp"
         android:textColorHint="#757575"
         android:typeface="monospace"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="RtlSymmetry,TextContrastCheck" />
 
     <EditText
         android:id="@+id/txtLoginPassword"
@@ -41,7 +40,7 @@
         android:minHeight="48dp"
         android:paddingStart="10dp"
         android:textColorHint="#757575"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="RtlSymmetry,TextContrastCheck" />
 
         <Button
             android:id="@+id/btnLogin"
@@ -53,7 +52,7 @@
             android:layout_marginHorizontal="20dp"
             android:typeface="monospace"
             android:layout_gravity="right"
-           />
+            tools:ignore="RtlHardcoded" />
 
     <TextView
         android:id="@+id/txtDontHaveAcc"

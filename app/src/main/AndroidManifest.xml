@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyUtilities">
         <activity
+            android:name=".SavedOtherUtilities"
+            android:exported="false" />
+        <activity
+            android:name=".OtherUtilities"
+            android:exported="false" />
+        <activity
             android:name=".SavedWater"
             android:exported="false" />
         <activity

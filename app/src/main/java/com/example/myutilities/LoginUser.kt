@@ -7,11 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.myutilities.databinding.ActivityLoginUserBinding
 import com.google.firebase.auth.FirebaseAuth
 
-
 class LoginUser : AppCompatActivity() {
     private lateinit var binding: ActivityLoginUserBinding
     private lateinit var mAuth: FirebaseAuth
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +26,6 @@ class LoginUser : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
     private fun loginUser(){
         if(binding.txtLoginEmail.text.toString().isBlank() ||
                 binding.txtLoginPassword.text.toString().isBlank())

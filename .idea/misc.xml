@@ -3,11 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Dado/StudioProjects/Calculate-Utilities/app/src/main/res/layout/activity_login_user.xml" value="0.1" />
+        <entry key="..\:/Users/Dado/StudioProjects/Calculate-Utilities/app/src/main/res/layout/activity_count_electricity.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Dado/StudioProjects/Calculate-Utilities/app/src/main/res/layout/activity_count_gas.xml" value="0.5" />
+        <entry key="..\:/Users/Dado/StudioProjects/Calculate-Utilities/app/src/main/res/layout/activity_count_water.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Dado/StudioProjects/Calculate-Utilities/app/src/main/res/layout/activity_login_user.xml" value="0.25" />
+        <entry key="..\:/Users/Dado/StudioProjects/Calculate-Utilities/app/src/main/res/layout/activity_main_menu.xml" value="0.25" />
+        <entry key="..\:/Users/Dado/StudioProjects/Calculate-Utilities/app/src/main/res/layout/activity_my_utilities.xml" value="0.23867753623188406" />
+        <entry key="..\:/Users/Dado/StudioProjects/Calculate-Utilities/app/src/main/res/layout/activity_other_utilities.xml" value="0.25" />
         <entry key="..\:/Users/Dado/StudioProjects/Calculate-Utilities/app/src/main/res/layout/activity_saved_electricity.xml" value="0.1" />
+        <entry key="..\:/Users/Dado/StudioProjects/Calculate-Utilities/app/src/main/res/layout/activity_saved_gas.xml" value="0.17135416666666667" />
+        <entry key="..\:/Users/Dado/StudioProjects/Calculate-Utilities/app/src/main/res/layout/activity_saved_other_utilities.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Dado/StudioProjects/Calculate-Utilities/app/src/main/res/layout/activity_sign_up_user.xml" value="0.33" />
+        <entry key="..\:/Users/Dado/StudioProjects/Calculate-Utilities/app/src/main/res/layout/list_item_electricity.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Dado/StudioProjects/Calculate-Utilities/app/src/main/res/layout/list_item_gas.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Dado/StudioProjects/Calculate-Utilities/app/src/main/res/layout/list_item_other_utilities.xml" value="0.365625" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
